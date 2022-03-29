@@ -1,11 +1,13 @@
 import requests
 
 url = 'https://viacep.com.br/ws/'
-zipcodes = ['30140071', '30140072', '30140073', '30140074', '30140075']
+zipcode = 30140071
 formato = '/json/'
 
-for zipcode in zipcodes:
-    r = requests.get(url + zipcode + formato)
+zipcodes = range(zipcode, zipcode + 5)
+
+for item in zipcodes:
+    r = requests.get(url + str(item) + formato)
 
     if (r.status_code == 200):
         print()
